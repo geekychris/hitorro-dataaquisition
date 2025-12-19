@@ -1,0 +1,17 @@
+Company:
+geekychris
+
+Application Name:
+alumni_search
+
+API Key:
+9vittQO5vakddAu1YUjv8LuXBAUSR4ASJh_HNWdmPn3RjvNXOkkn-eIER42nfD_r
+
+Secret Key:
+F-1frHeT4JIgx9hV-Cc-Jd0F9mvWJsvTZl5fMQkOQiqU2C17hI1_Mx6xO_bRGAL2
+
+
+
+
+
+http://www.recruitmentdirectory.com.au/Blog/using-the-linkedin-api-a304.html
