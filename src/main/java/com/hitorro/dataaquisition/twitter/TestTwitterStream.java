@@ -69,6 +69,7 @@ import com.hitorro.util.json.mapper.JSONFieldToStringMapper;
 import com.hitorro.util.testframework.EnhancedTestCase;
 import com.hitorro.util.testframework.HTTest;
 import com.hitorro.util.testframework.RunLevel;
+import com.hitorro.util.testframework.TestPlus;
 import com.hitorro.util.typesystem.Bag;
 import com.hitorro.util.typesystem.HTSerializable;
 import com.hitorro.util.typesystem.HTSerializableUtil;
@@ -423,7 +424,7 @@ public class TestTwitterStream {
         JVS jvs = new JVS();
 
 
-        jvs.set("mapper", "ht.util.file.fs.BaseFileUtil#bf2json");
+        jvs.set("mapper", "com.hitorro.util.file.fs.BaseFileUtil#bf2json");
         Mapper m = svp.apply(jvs);
         HTPredicate<BaseFile> lo = new LogicalOrOperator(new IsDir(), new LogicalOrOperator(new FileEndsWith("ser", true), new FileEndsWith("ser.gz", true)));
         BaseFile outFile = FileFileSystem.Root.getFile("/user_names.txt");
@@ -442,7 +443,7 @@ public class TestTwitterStream {
     public void teestReadFromQueue2UniqueUrls() throws IOException, PropaccessError {
         StaticVarProperty<Mapper> svp = new StaticVarProperty("mapper", "", false, BaseFileUtil.bf2json, Mapper.class);
         JVS jvs = new JVS();
-        jvs.set("mapper", "ht.util.file.fs.BaseFileUtil#bf2json");
+        jvs.set("mapper", "com.hitorro.util.file.fs.BaseFileUtil#bf2json");
         Mapper m = svp.apply(jvs);
         HTPredicate<BaseFile> lo = new LogicalOrOperator(new IsDir(), new LogicalOrOperator(new FileEndsWith("ser", true), new FileEndsWith("ser.gz", true)));
         BaseFile outFile = FileFileSystem.Root.getFile("/urls.txt");
@@ -493,8 +494,8 @@ public class TestTwitterStream {
     }
 
     public void teestReadJSONWriteHTReadHT() throws IOException {
-        File input = EnhancedTestCase.getOutputFileRelativeForClass("twitter.ser", this.getClass(), true);
-        File outS = EnhancedTestCase.getOutputFileRelativeForClass("twitter.htser", this.getClass(), true);
+        File input = TestPlus.getOutputFileRelativeForClass("twitter.ser", this.getClass(), true);
+        File outS = TestPlus.getOutputFileRelativeForClass("twitter.htser", this.getClass(), true);
         outS.delete();
         HTSerializableSink htSink = null;
         try {
@@ -515,8 +516,8 @@ public class TestTwitterStream {
     }
 
     public void teestReadAndWrite() throws IOException {
-        File input = EnhancedTestCase.getOutputFileRelativeForClass("twitter.ser", this.getClass(), true);
-        File out = EnhancedTestCase.getOutputFileRelativeForClass("twitter.xml", this.getClass(), true);
+        File input = TestPlus.getOutputFileRelativeForClass("twitter.ser", this.getClass(), true);
+        File out = TestPlus.getOutputFileRelativeForClass("twitter.xml", this.getClass(), true);
         out.delete();
         out.delete();
         // get me a bagxml writer Sink object, using a writer we created from a file.
@@ -563,8 +564,8 @@ public class TestTwitterStream {
      * @throws IOException
      */
     public void teestHTSerializableSelectTree() throws Exception {
-        File input = EnhancedTestCase.getOutputFileRelativeForClass("twitter.ser", this.getClass(), true);
-        File outS = EnhancedTestCase.getOutputFileRelativeForClass("twitter.htser", this.getClass(), true);
+        File input = TestPlus.getOutputFileRelativeForClass("twitter.ser", this.getClass(), true);
+        File outS = TestPlus.getOutputFileRelativeForClass("twitter.htser", this.getClass(), true);
         outS.delete();
 
         IsType<Bag> isType = new IsType("twitter");

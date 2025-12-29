@@ -52,7 +52,7 @@ public abstract class TupleSet<I, O> implements Tuple<I, O> {
     }
 
     /**
-     * Load from a 2d array consisting of: {in(java.lang.String), out(java.lang.String), me(ht.util.iter.Mapper)}
+     * Load from a 2d array consisting of: {in(java.lang.String), out(java.lang.String), me(com.hitorro.util.iter.Mapper)}
      *
      * @param rows
      */
