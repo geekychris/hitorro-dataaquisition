@@ -42,7 +42,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>ht</groupId>
+            <groupId>com.hitorro</groupId>
             <artifactId>hitorro-dedupe</artifactId>
             <version>3.0.0</version>
             <scope>provided</scope>
