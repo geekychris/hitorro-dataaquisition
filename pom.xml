@@ -15,37 +15,33 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <httpclient.version>4.5.14</httpclient.version>
         <trove4j.version>3.0.3</trove4j.version>
     </properties>
 
     <dependencies>
-        <!-- Internal Hitorro Dependencies (marked as provided - must be available at runtime) -->
+        <!-- Internal Hitorro Dependencies -->
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-analysis</artifactId>
             <version>3.0.0</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-text-persistence</artifactId>
             <version>3.0.0</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-basedms</artifactId>
             <version>3.0.0</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-dedupe</artifactId>
             <version>3.0.0</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- High-Performance Collections -->
@@ -117,8 +113,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>19</source>
-                    <target>19</target>
+                    <source>21</source>
+                    <target>21</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
