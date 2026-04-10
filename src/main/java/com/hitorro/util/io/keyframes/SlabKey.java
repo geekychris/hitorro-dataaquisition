@@ -21,9 +21,7 @@
  */
 package com.hitorro.util.io.keyframes;
 
-/**
- *
- */
+
 public class SlabKey {
     public long key;
 

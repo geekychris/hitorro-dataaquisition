@@ -30,9 +30,7 @@ import com.hitorro.util.typesystem.HTSerializableUtil;
 
 import java.io.IOException;
 
-/**
- *
- */
+
 public class Frame2BagMapper extends BaseMapper<KeyFrame, Bag> {
 
     private DictCompressor comp;

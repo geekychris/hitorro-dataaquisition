@@ -105,39 +105,11 @@ public class TestWikiGathering extends EnhancedTestCase {
     }
 
     public void teestReadDataMap() {
-        Timer t = new Timer();
-        Console.println("Started re-write");
-        t.reset();
-        SinkSet ss = FileSetManager.getSink("ht");
-        BaseFile wk = FileFileSystem.Root.getFile(wikiFile);
-        AbstractIterator<XE> iter = BaseFileUtil.bf2Xwikipdeai_xedom.apply(wk);
-        AbstractIterator<Bag> bagIter = iter.map(Wiki2Bag.wikixe2bagmapper).filter(new LogicalNotOperator(new BagContainsField("redirect")));
-        CounterSet cs = new CounterSet("bftester");
-        bagIter = bagIter.time(cs);
-        while (bagIter.hasNext()) {
-            bagIter.next();
-        }
-        Console.println("Timer : seconds %s", t.getTime() / 1000);
+        // bf2Xwikipdeai_xedom removed during cleanup
     }
 
     public void testReadDataMap() {
-        Timer t = new Timer();
-        Console.println("Started re-write");
-        t.reset();
-        BaseFile wk = FileFileSystem.Root.getFile(wikiFile);
-        AbstractIterator<XE> iter = BaseFileUtil.bf2Xwikipdeai_xedom.apply(wk);
-        AbstractIterator<List<String>> bagIter = iter.map(Wiki2Bag.wikixe2bagmapper).filter(new LogicalNotOperator(new BagContainsField("redirect"))).map(new Text2Sentences(com.hitorro.language.Iso639Table.english, new String[]{"title", "body"}));
-        CounterSet cs = new CounterSet("bftester");
-        bagIter = bagIter.time(cs);
-        PrintWriter pw = FileUtil.getBufferedPrintWriterFromFile(new File("/Users/chris/wikisents.txt"));
-        while (bagIter.hasNext()) {
-            List<String> sents = bagIter.next();
-            for (String sent : sents) {
-                pw.println(sent);
-            }
-        }
-        pw.close();
-        Console.println("Timer : seconds %s", t.getTime() / 1000);
+        // bf2Xwikipdeai_xedom removed during cleanup
     }
 
     public void teestReadData() {
@@ -149,8 +121,6 @@ public class TestWikiGathering extends EnhancedTestCase {
             return;
         }
         AbstractIterator<Bag> bagIter = (AbstractIterator<Bag>) BaseBaseFileUtil.bf2htser.apply(wk);
-        CounterSet cs = new CounterSet("bftester");
-        bagIter = bagIter.time(cs);
         while (bagIter.hasNext()) {
             bagIter.next();
         }
@@ -159,19 +129,7 @@ public class TestWikiGathering extends EnhancedTestCase {
 
 
     public void teestReWriteWikiData() throws IOException {
-        Timer t = new Timer();
-        Console.println("Started re-write");
-        t.reset();
-        SinkSet ss = FileSetManager.getSink("ht");
-        BaseFile wk = FileFileSystem.Root.getFile("/Users/chris/opendata/wikipedia/enwiki-20110115-pages-articles.xml.bz2");
-        AbstractIterator<XE> iter = BaseFileUtil.bf2Xwikipdeai_xedom.apply(wk);
-        AbstractIterator<Bag> bagIter = iter.map(Wiki2Bag.wikixe2bagmapper).filter(new LogicalNotOperator(new BagContainsField("redirect")));
-        ObjectNode node = JsonNodeFactory.instance.objectNode();
-        node.put("outfile", "file://hthome/wiki.ht.gz");
-        Sink sink = ss.getSink(node);
-        bagIter.sink(sink);
-        t.stop();
-        Console.println("Timer : seconds %s", t.getTime() / 1000);
+        // bf2Xwikipdeai_xedom removed during cleanup
     }
 
     public void teestWiki() throws IOException, WikiParserException {
@@ -210,68 +168,7 @@ public class TestWikiGathering extends EnhancedTestCase {
     }
 
     public void teestWikiMap() {
-        BaseFile wk = FileFileSystem.Root.getFile("/wiki/enwiki-20110115-pages-articles.xml.bz2");
-        AbstractIterator<XE> iter = BaseFileUtil.bf2Xwikipdeai_xedom.apply(wk);
-        AbstractIterator<Bag> bagIter = iter.map(Wiki2Bag.wikixe2bagmapper).filter(new LogicalNotOperator(new BagContainsField("redirect")));
-        MediaWikiParser parser = new MediaWikiParser();
-        WikiGatheringPrinter f = new WikiGatheringPrinter();
-        // WikiGatherer wg = new WikiGatherer(f);
-        WikiGathererListener pil = new WikiGathererListener(f);
-        int counter = 0;
-        PrintWriter pw = FileUtil.getBufferedPrintWriterFromFile(new File("/wiki.csv"));
-        Console.println(pw, "key, iswikientry");
-        while (bagIter.hasNext()) {
-            Bag bag = bagIter.next();
-            counter++;
-            if (counter % 1000 == 0) {
-                Console.println("counter %s", counter);
-            }
-            if (bag != null) {
-                //Console.println("%s", bag);
-                String o = bag.getValueAsString(bag, "body");
-                if (o == null) {
-                    continue;
-                }
-                String t = bag.getValueAsString(bag, "title");
-                if (t == null) {
-                    continue;
-                }
-                int index = t.indexOf("(");
-                if (index != -1) {
-                    t = t.substring(0, index);
-                }
-                t = ConditionStringMapper.alpha.apply(t);
-
-                Console.println(pw, "%s, 1", t);
-                //  Console.println("%s", t);
-                String title = t;
-                String bridge = "Amiga";
-
-                if (!title.equalsIgnoreCase(bridge)) {
-                    continue;
-                }
-                //if (txt.length() > 5000)
-                {
-                    f.clear();
-                    StringReader sr = new StringReader(o);
-
-                    try {
-                        parser.parse(sr, pil);
-                        //parser.parse(sr, wg);
-                        //String s = f.getText();
-
-                        //Console.println("==============================================================================");
-                        //Console.println(s);
-                    } catch (WikiParserException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    }
-
-                }
-            }
-        }
-        pw.flush();
-        pw.close();
-        Console.println("%s", counter);
+        // bf2Xwikipdeai_xedom removed during cleanup
     }
 }
 

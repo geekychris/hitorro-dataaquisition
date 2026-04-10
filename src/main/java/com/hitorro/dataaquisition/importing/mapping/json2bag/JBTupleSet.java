@@ -25,9 +25,7 @@ import com.hitorro.dataaquisition.importing.mapping.TupleMap;
 import com.hitorro.dataaquisition.importing.mapping.TupleSet;
 import com.hitorro.util.core.iterator.Mapper;
 
-/**
- *
- */
+
 public class JBTupleSet<I, O> extends TupleSet<I, O> {
 
     @Override

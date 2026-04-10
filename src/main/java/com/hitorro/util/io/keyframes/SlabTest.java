@@ -42,9 +42,7 @@ import com.hitorro.dataaquisition.twitter.TwitterUtil;
 
 import java.io.IOException;
 
-/**
- *
- */
+
 public class SlabTest extends EnhancedTestCase {
     public void testQeueue() {
         FileSet dq = FileSetManager.getQueue("twitterraw");

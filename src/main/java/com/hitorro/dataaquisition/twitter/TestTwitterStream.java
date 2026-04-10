@@ -86,9 +86,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 
-/**
- *
- */
+
 @HTTest(runlevel = RunLevel.Never,
         email = "chris@hitorro.com",
         description = "Test basic streaming routines against some twitter content")
@@ -425,7 +423,7 @@ public class TestTwitterStream {
 
 
         jvs.set("mapper", "com.hitorro.util.file.fs.BaseFileUtil#bf2json");
-        Mapper m = svp.apply(jvs);
+        Mapper m = svp.apply(jvs.getJsonNode());
         HTPredicate<BaseFile> lo = new LogicalOrOperator(new IsDir(), new LogicalOrOperator(new FileEndsWith("ser", true), new FileEndsWith("ser.gz", true)));
         BaseFile outFile = FileFileSystem.Root.getFile("/user_names.txt");
 
@@ -444,7 +442,7 @@ public class TestTwitterStream {
         StaticVarProperty<Mapper> svp = new StaticVarProperty("mapper", "", false, BaseFileUtil.bf2json, Mapper.class);
         JVS jvs = new JVS();
         jvs.set("mapper", "com.hitorro.util.file.fs.BaseFileUtil#bf2json");
-        Mapper m = svp.apply(jvs);
+        Mapper m = svp.apply(jvs.getJsonNode());
         HTPredicate<BaseFile> lo = new LogicalOrOperator(new IsDir(), new LogicalOrOperator(new FileEndsWith("ser", true), new FileEndsWith("ser.gz", true)));
         BaseFile outFile = FileFileSystem.Root.getFile("/urls.txt");
 

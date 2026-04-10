@@ -24,9 +24,7 @@ package com.hitorro.dataaquisition.importing.mapping;
 import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import com.hitorro.util.typesystem.Bag;
 
-/**
- *
- */
+
 public class TupleSet2BagBaseMapper<I> extends BaseMapper<I, Bag> {
     private TupleSet<I, Bag> ts;
     private String bagType;

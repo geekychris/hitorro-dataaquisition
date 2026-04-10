@@ -31,9 +31,7 @@ import com.hitorro.util.typesystem.Bag;
 import com.hitorro.util.xml.XE;
 
 
-/**
- *
- */
+
 public class Wiki2Bag {
     public static Mapper<XE, Boolean> xevalueexists = new BaseMapper<XE, Boolean>() {
         public Boolean apply(XE elem) {

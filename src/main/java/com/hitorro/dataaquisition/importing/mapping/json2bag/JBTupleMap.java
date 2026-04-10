@@ -27,9 +27,7 @@ import com.hitorro.util.json.JSONElement;
 import com.hitorro.util.json.JSONType;
 import com.hitorro.util.typesystem.Bag;
 
-/**
- *
- */
+
 public class JBTupleMap<I, O> extends TupleMap<JSONElement, Bag, JSONElement, O> {
     public JBTupleMap(String pathin, String pathOut) {
         super(pathin, pathOut);

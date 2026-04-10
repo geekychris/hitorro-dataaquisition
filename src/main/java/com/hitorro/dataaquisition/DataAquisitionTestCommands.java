@@ -78,9 +78,7 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-/**
- *
- */
+
 public class DataAquisitionTestCommands {
 
     @CommandDef(command = "wiki.read", description = "read wiki file")
@@ -100,20 +98,8 @@ public class DataAquisitionTestCommands {
         Console.println("Started re-write");
         t.reset();
         SinkSet ss = FileSetManager.getSink("ht");
-        BaseFile wk = FileFileSystem.Root.getFile(inputfile);
-        AbstractIterator<XE> iter = BaseFileUtil.bf2Xwikipdeai_xedom.apply(wk);
-        AbstractIterator<Bag> bagIter = iter.map(Wiki2Bag.wikixe2bagmapper).filter(new LogicalNotOperator(new BagContainsField("redirect")));
-        CounterSet cs = new CounterSet("bftester");
-        bagIter = bagIter.time(cs);
-        int records = 0;
-
-        HTSerializableSink sink = new HTSerializableSink();
-
-
-        sink.init(args.getJsonNode());
-        records = bagIter.sink(sink);
-
-        return Fmt.S("took: %s for %s records", t.getTime() / 1000, records);
+        // bf2Xwikipdeai_xedom removed during cleanup
+        return "Wiki XML reader no longer available";
     }
 
     @CommandDef(command = "wiki.readoutcats", description = "read wiki file and output categories")
@@ -129,65 +115,8 @@ public class DataAquisitionTestCommands {
                                                                 description = "source file", defaultValue = "a") BaseFile inputfile,
                                                         @DebugArgAno(propType = BasefileProperty.class, keyName = "outfile",
                                                                 description = "source file", defaultValue = "a") BaseFile outfile) {
-        Timer t = new Timer();
-        Console.println("Started re-write");
-        t.reset();
-        SinkSet ss = FileSetManager.getSink("ht");
-        AbstractIterator<XE> iter = BaseFileUtil.bf2Xwikipdeai_xedom.apply(inputfile);
-        AbstractIterator<Bag> bagIter = iter.map(Wiki2Bag.wikixe2bagmapper).filter(new LogicalNotOperator(new BagContainsField("redirect")));
-        CounterSet cs = new CounterSet("bftester");
-        bagIter = bagIter.time(cs);
-        int records = 0;
-
-        MediaWikiParser parser = new MediaWikiParser();
-        GatherCats f = new GatherCats();
-        //WikiGatheringPrinter f = new WikiGatheringPrinter();
-        // WikiGatherer wg = new WikiGatherer(f);
-        WikiGathererListener pil = new WikiGathererListener(f);
-
-        Set<String> include = new HashSet();
-        Map<String, PrintWriter> pwMap = new HashMap();
-        com.hitorro.language.Iso639Table.getInstance().addLangKeysToSet(include);
-        include.add("Category");
-        include.add("wikt");
-        outfile.mkdir();
-        int errors = 0;
-        try {
-            while (bagIter.hasNext()) {
-                Bag bag = bagIter.next();
-                try {
-                    String body = bag.getValueAsString("body");
-                    String title = bag.getValueAsString("title");
-                    StringReader sr = new StringReader(body);
-                    f.cats.clear();
-                    parser.parse(sr, pil);
-                    for (String cat : f.cats) {
-                        String parts[] = StringUtil.splitByToken(cat, ':');
-                        PrintWriter pwr = getPrintWriter(parts[0], outfile, pwMap, include);
-                        if (pwr == null) {
-                            continue;
-                        }
-                        pwr.print(parts[1]);
-                        pwr.print("||");
-                        pwr.print(title);
-                        pwr.println();
-                    }
-                    records++;
-                    if (records % 10000 == 0) {
-                        Log.util.info(">>processed %s", records);
-                    }
-                } catch (Exception e) {
-                    Log.util.error("Received error count=%s, %s %e", ++errors, e, e);
-                }
-
-            }
-        } catch (Exception e) {
-            Log.util.error("%s %e", e, e);
-        } finally {
-
-        }
-        closePrintWriters(pwMap);
-        return Fmt.S("took: %s for %s records", t.getTime() / 1000, records);
+        // bf2Xwikipdeai_xedom removed during cleanup
+        return "Wiki XML reader no longer available";
     }
 
 
@@ -265,8 +194,6 @@ public class DataAquisitionTestCommands {
             return "file doesnt exist";
         }
         AbstractIterator<Bag> bagIter = (AbstractIterator<Bag>) BaseBaseFileUtil.bf2htser.apply(inputfile);
-        CounterSet cs = new CounterSet("bftester");
-        bagIter = bagIter.time(cs);
         int records = 0;
         TObjectLongHashMap<String> names = new TObjectLongHashMap();
 

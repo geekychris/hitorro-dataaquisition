@@ -28,9 +28,7 @@ import com.hitorro.util.io.ResetableStringReader;
 import org.wikimodel.wem.WikiParserException;
 import org.wikimodel.wem.mediawiki.MediaWikiParser;
 
-/**
- *
- */
+
 public class WikiTextMapper extends BaseMapper<String, String> {
     private MediaWikiParser parser = new MediaWikiParser();
     private ResetableStringReader sr = new ResetableStringReader("text");

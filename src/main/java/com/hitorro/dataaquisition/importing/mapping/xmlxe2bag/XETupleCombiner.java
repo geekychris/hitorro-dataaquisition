@@ -27,9 +27,7 @@ import com.hitorro.util.core.string.Fmt;
 import com.hitorro.util.typesystem.Bag;
 import com.hitorro.util.xml.XE;
 
-/**
- *
- */
+
 public class XETupleCombiner implements Tuple<XE, Bag> {
     private String fields[];
     private Mapper mappers[];

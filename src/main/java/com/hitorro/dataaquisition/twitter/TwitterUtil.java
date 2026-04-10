@@ -34,9 +34,7 @@ import com.hitorro.util.typesystem.HTSerializableUtil;
 
 import java.util.Comparator;
 
-/**
- *
- */
+
 public class TwitterUtil { //@Override
     //public Bag getNewObject ()
     //{

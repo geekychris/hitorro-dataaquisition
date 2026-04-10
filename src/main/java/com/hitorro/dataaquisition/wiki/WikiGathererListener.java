@@ -27,9 +27,7 @@ import org.wikimodel.wem.WikiPageUtil;
 import org.wikimodel.wem.WikiParameters;
 import org.wikimodel.wem.util.WikiEntityUtil;
 
-/**
- *
- */
+
 public class WikiGathererListener extends WikiGatherer {
     /**
      *

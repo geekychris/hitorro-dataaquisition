@@ -21,9 +21,7 @@
  */
 package com.hitorro.dataaquisition.importing.mapping;
 
-/**
- *
- */
+
 public interface Tuple<I, O> {
     void map(I i, O o);
 

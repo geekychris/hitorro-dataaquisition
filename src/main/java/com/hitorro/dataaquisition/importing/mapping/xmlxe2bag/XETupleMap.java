@@ -26,9 +26,7 @@ import com.hitorro.util.core.iterator.Mapper;
 import com.hitorro.util.typesystem.Bag;
 import com.hitorro.util.xml.XE;
 
-/**
- *
- */
+
 public class XETupleMap<I, O> extends TupleMap<XE, Bag, XE, O> {
     public XETupleMap(String pathin, String pathOut) {
         super(pathin, pathOut);

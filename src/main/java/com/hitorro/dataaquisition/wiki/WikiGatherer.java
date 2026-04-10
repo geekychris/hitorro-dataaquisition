@@ -24,9 +24,7 @@ package com.hitorro.dataaquisition.wiki;
 import com.hitorro.util.core.Console;
 import org.wikimodel.wem.*;
 
-/**
- *
- */
+
 public class WikiGatherer implements IWemListener {
     protected final WikiGatheringPrinter printer;
 

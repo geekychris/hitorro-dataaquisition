@@ -23,9 +23,7 @@ package com.hitorro.dataaquisition.facebook;
 
 import com.hitorro.util.sqllike.SqlLike;
 
-/**
- *
- */
+
 public class Fql extends SqlLike<Fql> {
     public static final String StreamFields[] = {"post_id", "message", "comments", "attachment", "action_links", "likes", "type",
             "app_id", "actor_id", "source_id", "target_id", "updated_time", "created_time", "permalink"};

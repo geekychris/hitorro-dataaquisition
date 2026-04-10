@@ -58,7 +58,7 @@ public class Slab<T> {
     public Slab(BaseFile dir, BaseMapper<byte[], T> mapper) throws IOException {
         this.dir = dir;
         this.mapper = mapper;
-        props = dir.getChild(PropsFileKey).getPropertiesAsJVS().getJsonNode();
+        props = dir.getChild(PropsFileKey).getPropertiesAsJsonNode();
     }
 
     public DictCompressor getCompressor() throws IOException {

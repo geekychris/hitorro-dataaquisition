@@ -26,9 +26,7 @@ import com.hitorro.util.core.iterator.Mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 public abstract class TupleSet<I, O> implements Tuple<I, O> {
     protected Tuple[] tuples;
     protected List<Tuple> list = new ArrayList();

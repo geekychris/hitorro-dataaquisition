@@ -23,9 +23,7 @@ package com.hitorro.dataaquisition.importing.mapping;
 
 import com.hitorro.util.core.iterator.Mapper;
 
-/**
- *
- */
+
 public abstract class TupleMap<E, E1, I, O> implements Tuple<E, E1> {
     protected String pathIn;
     protected String pathOut;

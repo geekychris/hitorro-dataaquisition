@@ -28,9 +28,7 @@ import org.wikimodel.wem.WikiParameters;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 public class WikiGatheringPrinter implements IWikiPrinter {
     StringBuilder sb = new StringBuilder();
     StringBuilder refsBuffer = new StringBuilder();

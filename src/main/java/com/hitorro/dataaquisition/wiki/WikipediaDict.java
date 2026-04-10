@@ -31,9 +31,7 @@ import com.hitorro.util.json.keys.BasefileProperty;
 import java.io.IOException;
 import java.text.ParseException;
 
-/**
- *
- */
+
 public class WikipediaDict {
     public static final BasefileProperty DirKey = new BasefileProperty("wikipedia.dict.dir", "", "file://hthome/wiki");
     private WordBits bits;

@@ -23,9 +23,7 @@ package com.hitorro.dataaquisition.fetcher;
 
 import com.hitorro.base.docprocessing.blockqueue.QInstance;
 
-/**
- *
- */
+
 public interface FetchServiceHandler extends Runnable {
     String getPartitioner();
 

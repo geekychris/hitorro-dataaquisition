@@ -26,9 +26,7 @@ import com.hitorro.dataaquisition.importing.mapping.TupleSet;
 import com.hitorro.util.typesystem.Bag;
 import com.hitorro.util.xml.XE;
 
-/**
- *
- */
+
 public class XEContainingTupleMap extends ContainingTupleMap<XE, Bag> {
     public XEContainingTupleMap(String fieldIn, TupleSet set) {
         super(fieldIn, set);

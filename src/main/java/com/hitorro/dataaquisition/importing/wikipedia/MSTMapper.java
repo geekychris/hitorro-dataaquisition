@@ -36,9 +36,7 @@ import com.hitorro.util.core.iterator.mappers.JsonInitableMapper;
 
 import java.util.List;
 
-/**
- *
- */
+
 public class MSTMapper extends JsonInitableMapper<JsonNode, ArrayNode> {
     PoolContainer<com.hitorro.language.IsoLanguage, MSTParser> mstp;
     MSTParser mstParser;

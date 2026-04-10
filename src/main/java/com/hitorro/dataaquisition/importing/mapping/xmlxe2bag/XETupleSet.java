@@ -25,9 +25,7 @@ import com.hitorro.dataaquisition.importing.mapping.TupleMap;
 import com.hitorro.dataaquisition.importing.mapping.TupleSet;
 import com.hitorro.util.core.iterator.Mapper;
 
-/**
- *
- */
+
 public class XETupleSet<I, O> extends TupleSet<I, O> {
     @Override
     public TupleMap getInstance(String in, String out, Mapper mapper) {

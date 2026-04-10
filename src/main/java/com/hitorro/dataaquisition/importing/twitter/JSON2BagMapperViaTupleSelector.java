@@ -33,9 +33,7 @@ import com.hitorro.util.typesystem.Bag;
 import java.text.ParseException;
 import java.util.Date;
 
-/**
- *
- */
+
 public class JSON2BagMapperViaTupleSelector extends BaseMapper<JSONElement, Bag> {
     public static Mapper<JSONElement, Long> jsonDateToLong = new BaseMapper<JSONElement, Long>() {
         DateResolution dr = DateResolution.json;

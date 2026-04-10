@@ -36,9 +36,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
-/**
- *
- */
+
 public class BagUtil {
     public static final com.hitorro.util.bagio.BagToString bag2bodystring = new com.hitorro.util.bagio.BagToString("body");
 

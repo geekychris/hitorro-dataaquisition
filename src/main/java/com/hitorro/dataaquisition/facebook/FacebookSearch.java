@@ -25,9 +25,7 @@ import com.hitorro.util.core.ArrayUtil;
 import com.hitorro.util.core.Console;
 import com.hitorro.util.sqllike.SqlLike;
 
-/**
- *
- */
+
 public class FacebookSearch extends SqlLike<FacebookSearch> {
     String root = "http://graph.facebook.com/search?type=%s&q=%s";
     String rootS = "http://graph.facebook.com/search?type=%s&q=%s";

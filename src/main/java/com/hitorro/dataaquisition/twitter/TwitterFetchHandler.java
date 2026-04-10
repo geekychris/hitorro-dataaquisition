@@ -39,9 +39,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
 
-/**
- *
- */
+
 public class TwitterFetchHandler implements FetchServiceHandler {
     public final static StringProperty CredentialsKey = new StringProperty("credentials", "'u1:password1,u2:password2 ...'", "chrisxyz11:ariba1");
     public final static StringProperty StreamURLKey = new StringProperty("url", "base url for streaming query", "http://stream.twitter.com/1/statuses/sample.json?delimited=length");
