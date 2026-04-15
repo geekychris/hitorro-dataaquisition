@@ -42,9 +42,9 @@ import java.io.IOException;
  * less.
  */
 public class BagKeyFrameSink implements Sink<Bag> {
-    public static final BasefileProperty OutFileKey = new BasefileProperty("dir", "output directory using basefile format");
-    public static final IntegerProperty VersionKey = new IntegerProperty("version", "version number of file format", 1);
-    public static final StringProperty IdField = new StringProperty("idfield", "field that contains the unique id", "id");
+    public static BasefileProperty OutFileKey = new BasefileProperty("dir", "output directory using basefile format");
+    public static IntegerProperty VersionKey = new IntegerProperty("version", "version number of file format", 1);
+    public static StringProperty IdField = new StringProperty("idfield", "field that contains the unique id", "id");
 
 
     private int counter = 0;

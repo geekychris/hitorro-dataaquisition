@@ -49,7 +49,7 @@ public class Wiki2Bag {
     public static Object[][] revision = {{"timestamp", "timestamp"},
             {"comment", "comment"},
             {"text", "body"}};
-    public static final BaseMapper<XE, Bag> wikixe2bagmapper = new TupleSet2BagBaseMapper(getWikiMessageMappingTupleSet(), "wikipage");
+    public static BaseMapper<XE, Bag> wikixe2bagmapper = new TupleSet2BagBaseMapper(getWikiMessageMappingTupleSet(), "wikipage");
 
     /*
     page

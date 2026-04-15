@@ -33,7 +33,7 @@ import java.text.ParseException;
 
 
 public class WikipediaDict {
-    public static final BasefileProperty DirKey = new BasefileProperty("wikipedia.dict.dir", "", "file://hthome/wiki");
+    public static BasefileProperty DirKey = new BasefileProperty("wikipedia.dict.dir", "", "file://hthome/wiki");
     private WordBits bits;
     private NamedBitsOfLong nbol;
     private FPHashLongMap fpHashLongMap;

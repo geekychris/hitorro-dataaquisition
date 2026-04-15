@@ -72,7 +72,7 @@ public class SlabUtil {
      * @return
      * @throws IOException
      */
-    public static final boolean constructSlabFromHTSerBag(BaseFile inputFile, BaseFile slabDir,
+    public static boolean constructSlabFromHTSerBag(BaseFile inputFile, BaseFile slabDir,
                                                           int compressionVersion, String idField,
                                                           int splitSize) throws IOException {
         return constructSlabFromBag(inputFile, slabDir, compressionVersion, idField, splitSize, BaseBaseFileUtil.bf2htser.combine(new DummyBaseMapper<AbstractIterator<? extends HTSerializable>, AbstractIterator<Bag>>()), null);
@@ -91,7 +91,7 @@ public class SlabUtil {
      * @return
      * @throws IOException
      */
-    public static final boolean constructSlabFromBag(BaseFile inputFile, BaseFile slabDir,
+    public static boolean constructSlabFromBag(BaseFile inputFile, BaseFile slabDir,
                                                      int compressionVersion, String idField,
                                                      int splitSize,
                                                      BaseMapper<BaseFile, AbstractIterator<Bag>> mapper,

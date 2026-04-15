@@ -38,16 +38,16 @@ import java.io.Writer;
 
 
 public class BagUtil {
-    public static final com.hitorro.util.bagio.BagToString bag2bodystring = new com.hitorro.util.bagio.BagToString("body");
+    public static com.hitorro.util.bagio.BagToString bag2bodystring = new com.hitorro.util.bagio.BagToString("body");
 
 
-    public static final BaseMapper<Writer, Sink<Bag>> writer2xmlBagSink = new BaseMapper<Writer, Sink<Bag>>() {
+    public static BaseMapper<Writer, Sink<Bag>> writer2xmlBagSink = new BaseMapper<Writer, Sink<Bag>>() {
         public Sink<Bag> apply(Writer writer) {
             return new com.hitorro.util.bagio.XMLBagWriter(writer);
         }
     };
 
-    public static final BaseMapper<InputStream, AbstractIterator<Bag>> is2xmlbagiter = new BaseMapper<InputStream, AbstractIterator<Bag>>() {
+    public static BaseMapper<InputStream, AbstractIterator<Bag>> is2xmlbagiter = new BaseMapper<InputStream, AbstractIterator<Bag>>() {
         public AbstractIterator<Bag> apply(InputStream is) {
             try {
                 return new com.hitorro.util.bagio.XMLBagIterator(is, "UTF-8");
@@ -61,15 +61,15 @@ public class BagUtil {
         }
     };
 
-    public static final BaseMapper<BaseFile, AbstractIterator<Bag>> bf2xmlbagiter = BaseFileUtil.bf2inputstream.combine(is2xmlbagiter);
+    public static BaseMapper<BaseFile, AbstractIterator<Bag>> bf2xmlbagiter = BaseFileUtil.bf2inputstream.combine(is2xmlbagiter);
 
-    public static final BaseMapper<File, AbstractIterator<Bag>> fs2xmlbagiter = FileUtil.fsInputStream.combine(is2xmlbagiter);
+    public static BaseMapper<File, AbstractIterator<Bag>> fs2xmlbagiter = FileUtil.fsInputStream.combine(is2xmlbagiter);
 
 
-    public static final BaseMapper<BaseFile, Sink<Bag>> bf2xmlBagSink = BaseFileUtil.bf2utf8Writer.combine(writer2xmlBagSink);
+    public static BaseMapper<BaseFile, Sink<Bag>> bf2xmlBagSink = BaseFileUtil.bf2utf8Writer.combine(writer2xmlBagSink);
 
-    public static final BaseMapper<Bag, KeyFrame> bag2kf = new Bag2FrameMapper(1, "id");
-    public static final BaseMapper<KeyFrame, Bag> kf2bag = new Frame2BagMapper(1);
-    public static final BaseMapper<byte[], Bag> buff2bag = new com.hitorro.util.bagio.Buff2BagMapper();
+    public static BaseMapper<Bag, KeyFrame> bag2kf = new Bag2FrameMapper(1, "id");
+    public static BaseMapper<KeyFrame, Bag> kf2bag = new Frame2BagMapper(1);
+    public static BaseMapper<byte[], Bag> buff2bag = new com.hitorro.util.bagio.Buff2BagMapper();
 
 }

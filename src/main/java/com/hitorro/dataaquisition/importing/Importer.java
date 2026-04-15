@@ -52,9 +52,9 @@ import java.io.IOException;
         debugCommands = {},
         typeManagedClasses = {})
 public class Importer {
-    public static final FileProperty LgkProperty = new FileProperty("importer.lgkname", "", "${ht_home}/queuekeys/importer.lgk");
-    public static final ResolvableStringProperty QueueRootProperty = new ResolvableStringProperty("inputqueue", "", "file://${ht_home}/queuepath/");
-    public static final StringProperty ConfigPath = new StringProperty("importer.configpath", "where to look in the config path for importer options", null);
+    public static FileProperty LgkProperty = new FileProperty("importer.lgkname", "", "${ht_home}/queuekeys/importer.lgk");
+    public static ResolvableStringProperty QueueRootProperty = new ResolvableStringProperty("inputqueue", "", "file://${ht_home}/queuepath/");
+    public static StringProperty ConfigPath = new StringProperty("importer.configpath", "where to look in the config path for importer options", null);
     public final static ClassInstantiationProperty<ImporterServiceHandler> ImporterServiceHandlerKey = new ClassInstantiationProperty("importerhandler", "", null, ImporterServiceHandler.class);
 
     private String rootString;

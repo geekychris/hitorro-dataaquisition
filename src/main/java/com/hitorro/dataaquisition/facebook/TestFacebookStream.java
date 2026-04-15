@@ -137,7 +137,7 @@ public class TestFacebookStream extends EnhancedTestCase {
 }
 
 class GetIteratorFromPath extends BaseMapper<JSONElement, AbstractIterator<JSONElement>> {
-    public static final GetIteratorFromPath mapper = new GetIteratorFromPath("data");
+    public static GetIteratorFromPath mapper = new GetIteratorFromPath("data");
     private String path;
 
     public GetIteratorFromPath(String path) {

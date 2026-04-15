@@ -61,7 +61,7 @@ public class TwitterUtil { //@Override
                     .setMerger(TakeRightRowMerger.me);
 
     public static class TweetIdComparator implements Comparator<Bag> {
-        public static final TweetIdComparator comp = new TweetIdComparator();
+        public static TweetIdComparator comp = new TweetIdComparator();
 
         @Override
         public int compare(final Bag bag, final Bag bag1) {

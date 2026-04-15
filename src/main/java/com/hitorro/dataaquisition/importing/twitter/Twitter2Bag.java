@@ -64,7 +64,7 @@ public class Twitter2Bag {
 
     };
 
-    public static final Mapper<JSONElement, Bag> twitter2bag = new JSON2BagMapperViaTupleSelector(getSelector());
+    public static Mapper<JSONElement, Bag> twitter2bag = new JSON2BagMapperViaTupleSelector(getSelector());
 
 
     /**

@@ -44,9 +44,9 @@ public class Slab<T> {
     public static final String PropsFileKey = "stats.properties";
 
 
-    public static final IntegerProperty CompressionProp = new IntegerProperty(Compression, "", 1);
-    public static final IntegerProperty CounterProp = new IntegerProperty(Count, "", 1);
-    public static final IntegerProperty LoweBitsProp = new IntegerProperty(SplitSize, "", 1);
+    public static IntegerProperty CompressionProp = new IntegerProperty(Compression, "", 1);
+    public static IntegerProperty CounterProp = new IntegerProperty(Count, "", 1);
+    public static IntegerProperty LoweBitsProp = new IntegerProperty(SplitSize, "", 1);
     BaseFile dir;
 
     // for read
