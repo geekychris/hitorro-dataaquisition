@@ -22,6 +22,7 @@
 package com.hitorro.dataaquisition.twitter;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.hitorro.util.core.iterator.helpers.FileMappers;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.hitorro.base.BaseBaseFileUtil;
 import com.hitorro.base.docprocessing.blockqueue.QInstance;
@@ -497,11 +498,11 @@ public class TestTwitterStream {
         outS.delete();
         HTSerializableSink htSink = null;
         try {
-            htSink = new HTSerializableSink(FileUtil.fsOutputStream.apply(outS));
+            htSink = new HTSerializableSink(FileMappers.fsOutputStream.apply(outS));
         } catch (Exception e) {
             Console.println("%s %e", e, e);
         }
-        int counter = FileUtil.fsJsonIter.apply(input).map(Twitter2Bag.twitter2bag).sink(htSink);
+        int counter = FileMappers.fsJsonIter.apply(input).map(Twitter2Bag.twitter2bag).sink(htSink);
         AbstractIterator<? extends HTSerializable> htIter = HTSerializableUtil.fs2htser.apply(outS);
         int c = 0;
 
@@ -522,7 +523,7 @@ public class TestTwitterStream {
         XML2BagWriter writer = new XML2BagWriter(new OutputStreamWriter(new FileOutputStream(out), "UTF-8"));
         /// magic line that reads from file, converting json based twitter into a twitter type Bag object and then writes it back out as
         // xml representation of a bag
-        int counter = FileUtil.fsJsonIter.apply(input).map(Twitter2Bag.twitter2bag).sink(writer, 145, 10);
+        int counter = FileMappers.fsJsonIter.apply(input).map(Twitter2Bag.twitter2bag).sink(writer, 145, 10);
 
         Iterator<Bag> iter = BagUtil.fs2xmlbagiter.apply(out);
         int c = 0;
@@ -574,7 +575,7 @@ public class TestTwitterStream {
 
         BaseFileBucketWriter bWriter = new BaseFileBucketWriter(1000, baseDir, "htser", TwitterUtil.twitterXMLBagFactory);
 
-        int cnt = FileUtil.fsJsonIter.apply(input).map(Twitter2Bag.twitter2bag).filter(isType).sink(bWriter);
+        int cnt = FileMappers.fsJsonIter.apply(input).map(Twitter2Bag.twitter2bag).filter(isType).sink(bWriter);
         BaseFile files[] = baseDir.listFiles();
 
         verifyFiles(baseDir, BaseBaseFileUtil.bf2htser.combine(new DummyBaseMapper<AbstractIterator<? extends HTSerializable>, AbstractIterator<Bag>>()));

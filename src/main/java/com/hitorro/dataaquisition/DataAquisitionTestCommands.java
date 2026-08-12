@@ -23,6 +23,7 @@ package com.hitorro.dataaquisition;
 
 
 import com.hitorro.dataaquisition.twitter.TwitterUtil;
+import com.hitorro.util.core.iterator.helpers.FileMappers;
 import gnu.trove.map.hash.TObjectLongHashMap;
 import com.hitorro.base.BaseBaseFileUtil;
 import com.hitorro.base.filesetmanager.FileQueue;
@@ -272,7 +273,7 @@ public class DataAquisitionTestCommands {
         String fanPageId = "34936988896";
         // Stream the query results into a buffer so we can not only parse through it, we can write it to disk if we like it.
         int count = fql.select(Fql.StatusFields, "status").where("uid", "=", userid).limit(50).formatJSON().getAsArrayAndBuffer();
-        Iterator<JSONElement> jsi = FileUtil.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper);
+        Iterator<JSONElement> jsi = FileMappers.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper);
         while (jsi.hasNext()) {
             JSONElement elem = jsi.next();
             Console.println(elem.toString());

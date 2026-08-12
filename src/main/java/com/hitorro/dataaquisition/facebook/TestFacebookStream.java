@@ -22,6 +22,7 @@
 package com.hitorro.dataaquisition.facebook;
 
 import com.hitorro.language.Iso639Table;
+import com.hitorro.util.core.iterator.helpers.FileMappers;
 import com.hitorro.language.IsoLanguage;
 import com.hitorro.util.core.Console;
 import com.hitorro.util.core.iterator.AbstractIterator;
@@ -76,7 +77,7 @@ public class TestFacebookStream extends EnhancedTestCase {
         do {
             search.setPage(page);
             search.getAsArrayAndBuffer();
-            Iterator<JSONElement> iter = FileUtil.isJsonIter.apply(search.getStreamFromBuffer()).nest(new GetJSONIteratorFromPath("data"));
+            Iterator<JSONElement> iter = FileMappers.isJsonIter.apply(search.getStreamFromBuffer()).nest(new GetJSONIteratorFromPath("data"));
             hasResults = false;
             while (iter.hasNext()) {
                 hasResults = true;
@@ -103,7 +104,7 @@ public class TestFacebookStream extends EnhancedTestCase {
 
         // / we have a set of documents that come back in a json listFiles.  We remove the items one by one from the listFiles.  This should
         // allow decoding of many arrays of
-        Iterator<JSONElement> jsi = FileUtil.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper).map(minmax);
+        Iterator<JSONElement> jsi = FileMappers.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper).map(minmax);
         while (jsi.hasNext()) {
             JSONElement elem = jsi.next();
             Console.println(elem.toString());
@@ -112,14 +113,14 @@ public class TestFacebookStream extends EnhancedTestCase {
         // actual page info
 
         count = fql.select(Fql.PageFields, "page").where("strpos(name,'jeep')", ">", 0).formatJSON().getAsArrayAndBuffer();
-        jsi = FileUtil.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper);
+        jsi = FileMappers.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper);
         while (jsi.hasNext()) {
             JSONElement elem = jsi.next();
             Console.println(elem.toString());
         }
 
         count = fql.select(Fql.PageFields, "page").where("page_id", "=", fanPageId).formatJSON().getAsArrayAndBuffer();
-        jsi = FileUtil.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper);
+        jsi = FileMappers.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper);
         while (jsi.hasNext()) {
             JSONElement elem = jsi.next();
             Console.println(elem.toString());
@@ -128,7 +129,7 @@ public class TestFacebookStream extends EnhancedTestCase {
 
         // some comments
         count = fql.select(Fql.CommentsFields, "comment").where("post_id", "=", "73340321070_10150096339456071").limit(50).formatJSON().getAsArrayAndBuffer();
-        jsi = FileUtil.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper);
+        jsi = FileMappers.isJsonIter.apply(fql.getStreamFromBuffer()).nest(JSONIterIterMapper.jsonIterIterMapper);
         while (jsi.hasNext()) {
             JSONElement elem = jsi.next();
             Console.println(elem.toString());

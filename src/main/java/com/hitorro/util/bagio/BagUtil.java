@@ -22,6 +22,7 @@
 package com.hitorro.util.bagio;
 
 import com.hitorro.util.basefile.fs.BaseFile;
+import com.hitorro.util.core.iterator.helpers.FileMappers;
 import com.hitorro.util.basefile.tools.BaseFileUtil;
 import com.hitorro.util.core.iterator.AbstractIterator;
 import com.hitorro.util.core.iterator.mappers.BaseMapper;
@@ -63,7 +64,7 @@ public class BagUtil {
 
     public static BaseMapper<BaseFile, AbstractIterator<Bag>> bf2xmlbagiter = BaseFileUtil.bf2inputstream.combine(is2xmlbagiter);
 
-    public static BaseMapper<File, AbstractIterator<Bag>> fs2xmlbagiter = FileUtil.fsInputStream.combine(is2xmlbagiter);
+    public static BaseMapper<File, AbstractIterator<Bag>> fs2xmlbagiter = FileMappers.fsInputStream.combine(is2xmlbagiter);
 
 
     public static BaseMapper<BaseFile, Sink<Bag>> bf2xmlBagSink = BaseFileUtil.bf2utf8Writer.combine(writer2xmlBagSink);
