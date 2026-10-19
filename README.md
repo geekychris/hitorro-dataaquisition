@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="Hitorro Dataaquisition logo" width="180">
+</p>
+
 # Hitorro Data Acquisition
 
 This is the **hitorro-dataaquisition** project, providing comprehensive data acquisition capabilities for fetching and importing data from various external sources.
