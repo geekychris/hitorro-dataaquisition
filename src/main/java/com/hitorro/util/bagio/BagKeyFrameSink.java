@@ -21,7 +21,7 @@
  */
 package com.hitorro.util.bagio;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.hitorro.util.core.Log;
 import com.hitorro.util.core.Timer;
 import com.hitorro.util.core.iterator.sinks.Sink;

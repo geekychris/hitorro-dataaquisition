@@ -21,7 +21,7 @@
  */
 package com.hitorro.util.io.keyframes;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.hitorro.util.basefile.fs.BaseFile;
 import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import com.hitorro.util.io.compressedmap.CompressedPointerMap;

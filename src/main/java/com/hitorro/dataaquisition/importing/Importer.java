@@ -21,7 +21,7 @@
  */
 package com.hitorro.dataaquisition.importing;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.hitorro.dataaquisition.BaseDataAquisitionService;
 import com.hitorro.jsontypesystem.propreaders.JVSProperties;
 import com.hitorro.util.basefile.filters.FileEndsWith;
