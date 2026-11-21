@@ -59,10 +59,10 @@ hitorro-dataaquisition/
 ## Dependencies
 
 ### Internal Hitorro Dependencies (provided scope)
-- `hitorro-analysis` (3.0.0)
-- `hitorro-text-persistence` (3.0.0)
-- `hitorro-basedms` (3.0.0)
-- `hitorro-dedupe` (3.0.0)
+- `hitorro-analysis` (4.0.0)
+- `hitorro-text-persistence` (4.0.0)
+- `hitorro-basedms` (4.0.0)
+- `hitorro-dedupe` (4.0.0)
 - `thirdpartysource` (2.0)
 
 ### External Dependencies
@@ -83,8 +83,8 @@ mvn clean package
 ```
 
 This will create:
-- `target/hitorro-dataaquisition-3.0.0.jar` - Standard JAR
-- `target/hitorro-dataaquisition-3.0.0-jar-with-dependencies.jar` - Fat JAR with all dependencies
+- `target/hitorro-dataaquisition-4.0.0.jar` - Standard JAR
+- `target/hitorro-dataaquisition-4.0.0-jar-with-dependencies.jar` - Fat JAR with all dependencies
 
 ### Install to Local Repository
 
@@ -169,7 +169,7 @@ To use this module in other Maven projects:
 <dependency>
     <groupId>ht</groupId>
     <artifactId>hitorro-dataaquisition</artifactId>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
 </dependency>
 ```
 

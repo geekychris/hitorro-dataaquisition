@@ -21,9 +21,9 @@
  */
 package com.hitorro.dataaquisition.twitter;
 
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import tools.jackson.databind.node.JsonNodeFactory;
 import com.hitorro.util.core.iterator.helpers.FileMappers;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.node.ObjectNode;
 import com.hitorro.base.BaseBaseFileUtil;
 import com.hitorro.base.docprocessing.blockqueue.QInstance;
 import com.hitorro.base.filesetmanager.FileQueue;

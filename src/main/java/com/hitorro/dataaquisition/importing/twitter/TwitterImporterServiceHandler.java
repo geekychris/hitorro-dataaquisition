@@ -21,7 +21,7 @@
  */
 package com.hitorro.dataaquisition.importing.twitter;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.hitorro.base.docprocessing.blockqueue.QInstance;
 import com.hitorro.dataaquisition.importing.ImporterServiceHandler;
 import com.hitorro.util.bagio.BF2TwitterBagSetting;

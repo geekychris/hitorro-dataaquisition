@@ -21,10 +21,10 @@
  */
 package com.hitorro.dataaquisition.importing.wikipedia;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.node.ArrayNode;
+import tools.jackson.databind.node.JsonNodeFactory;
+import tools.jackson.databind.node.ObjectNode;
 import com.hitorro.analysis.cky.ling.PennTreeRenderer;
 import com.hitorro.analysis.cky.ling.Tree;
 import com.hitorro.analysis.mstparser.DependencyResult;
@@ -35,6 +35,7 @@ import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import com.hitorro.util.core.iterator.mappers.JsonInitableMapper;
 
 import java.util.List;
+import com.hitorro.util.json.JsonValues;
 
 
 public class MSTMapper extends JsonInitableMapper<JsonNode, ArrayNode> {
@@ -81,7 +82,7 @@ public class MSTMapper extends JsonInitableMapper<JsonNode, ArrayNode> {
     }
 
     private void getAux(final JsonNode e, ArrayNode retM) {
-        String txt = e.textValue();
+        String txt = JsonValues.textValue(e);
 
         com.hitorro.language.POS pos = ss.getPOS(txt);
 

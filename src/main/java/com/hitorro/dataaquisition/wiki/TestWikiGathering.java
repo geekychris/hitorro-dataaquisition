@@ -21,8 +21,8 @@
  */
 package com.hitorro.dataaquisition.wiki;
 
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.node.JsonNodeFactory;
+import tools.jackson.databind.node.ObjectNode;
 import com.hitorro.base.BaseBaseFileUtil;
 import com.hitorro.base.filesetmanager.FileQueue;
 import com.hitorro.base.filesetmanager.FileSetManager;
